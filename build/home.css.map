@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "home.css",
+	"sources": [
+		"src/styles/home.sass"
+	],
+	"sourcesContent": [
+		""
+	],
+	"names": [],
+	"mappings": ""
+}

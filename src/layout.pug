@@ -1,0 +1,16 @@
+//- layout.pug
+html
+  head
+    title FrontEnd Challenge - #{title}
+    link(href="app.css", rel="stylesheet")
+    link(href="layout.css", rel="stylesheet")
+    block scripts
+    
+  body
+    header#header
+      nav
+    main
+      block content
+    footer#footer
+      section
+        p some footer content

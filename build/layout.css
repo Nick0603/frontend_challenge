@@ -1,0 +1,15 @@
+/* line 1, src/styles/layout.sass */
+header {
+  height: 67px;
+  background-color: #ffffff; }
+
+/* line 5, src/styles/layout.sass */
+footer {
+  height: 200px;
+  background-color: #DEDEDE; }
+
+/* line 9, src/styles/layout.sass */
+main {
+  min-height: 300px; }
+
+/*# sourceMappingURL=layout.css.map */

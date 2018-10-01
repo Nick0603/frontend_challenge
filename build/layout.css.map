@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "layout.css",
+	"sources": [
+		"src/styles/layout.sass"
+	],
+	"sourcesContent": [
+		"header {\n  height: 67px;\n  background-color: #ffffff; }\n\nfooter {\n  height: 200px;\n  background-color: #DEDEDE; }\n\nmain {\n  min-height: 300px; }\n"
+	],
+	"names": [],
+	"mappings": ";AAAA,AAAA,MAAM,CAAC;EACL,MAAM,EAAE,IAAI;EACZ,gBAAgB,EAAE,OAAO,GAAG;;;AAE9B,AAAA,MAAM,CAAC;EACL,MAAM,EAAE,KAAK;EACb,gBAAgB,EAAE,OAAO,GAAG;;;AAE9B,AAAA,IAAI,CAAC;EACH,UAAU,EAAE,KAAK,GAAG"
+}

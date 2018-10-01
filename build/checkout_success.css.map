@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "checkout_success.css",
+	"sources": [
+		"src/styles/checkout_success.sass"
+	],
+	"sourcesContent": [
+		""
+	],
+	"names": [],
+	"mappings": ""
+}
