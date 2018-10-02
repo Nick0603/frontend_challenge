@@ -29,8 +29,7 @@ var config = {
     chunkModules: false
   },
   entry: {
-    index: path.join(src, 'index.pug'),
-    // bundle: path.join(src, 'index.js'),
+    index: path.join(src, 'index.pug')
   },
   output: {
     path: path.resolve(__dirname, 'build'),

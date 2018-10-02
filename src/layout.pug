@@ -2,15 +2,30 @@
 html
   head
     title FrontEnd Challenge - #{title}
-    link(href="app.css", rel="stylesheet")
     link(href="layout.css", rel="stylesheet")
     block scripts
     
   body
-    header#header
+    header#header.wrap-header
       nav
-    main
+        ul
+          li.brand
+            img(src="../images/logo-all-dark.svg", alt="logo-all-dark.svg")
+          li.menu
+            ul
+              li.link
+                p 首頁
+              li.link
+                p 甜點
+              li.link
+                p 登入
+          li.cart
+            img.subscribe-brand(src="../images/logo-light.svg", alt="logo-light.svg")
+    main.main
       block content
-    footer#footer
-      section
-        p some footer content
+    footer#footer.wrap-footer
+      section.subscribe
+        img.subscribe-brand(src="../images/logo-light.svg", alt="logo-light.svg")
+        p.subscribe-content 訂閱你我的甜蜜郵件
+        input.subscribe-input(type="text")
+      section.contact
