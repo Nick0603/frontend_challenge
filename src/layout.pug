@@ -3,6 +3,8 @@ html
   head
     title FrontEnd Challenge - #{title}
     link(href="layout.css", rel="stylesheet")
+    link(href="https://use.fontawesome.com/releases/v5.3.1/css/all.css", rel="stylesheet")
+    
     block scripts
     
   body
@@ -14,13 +16,13 @@ html
           li.menu
             ul
               li.link
-                p 首頁
+                a(href="/index.html", title="title").class 首頁
               li.link
-                p 甜點
+                a(href="/sweet.html", title="title").class 甜點
               li.link
-                p 登入
+                a(href="/index.html", title="title").class 登入
           li.cart
-            img.subscribe-brand(src="../images/logo-light.svg", alt="logo-light.svg")
+            i.fas.fa-shopping-cart
     main.main
       block content
     footer#footer.wrap-footer

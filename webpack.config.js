@@ -13,12 +13,11 @@ function pugPage(name) {
   })
 }
 
-
 var config = {
-  devServer: {
-    hot: true,
-    inline: true,
-  },
+    devServer: {
+      hot: true,
+      inline: true,
+    },
   stats: {
     assets: false,
     colors: true,
@@ -70,6 +69,7 @@ var config = {
       path.join(src, 'styles/app.sass'),
       path.join(src, 'styles/layout.sass'),
       path.join(src, 'styles/index.sass'),
+      path.join(src, 'styles/sweet.sass'),
       path.join(src, 'styles/login.sass'),
       path.join(src, 'styles/product.sass'),
       path.join(src, 'styles/cart.sass'),
@@ -78,6 +78,7 @@ var config = {
     ], process.env.NODE_ENV),
     pugPage('layout'),
     pugPage('index'),
+    pugPage('sweet'),
     pugPage('login'),
     pugPage('product'),
     pugPage('cart'),

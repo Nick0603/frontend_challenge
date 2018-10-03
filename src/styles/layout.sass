@@ -1,20 +1,29 @@
+@import "node_modules/bootstrap/scss/bootstrap"
 @import './app.sass'
-.wrap-header
+header > .width-control,
+main   >  .width-control,
+footer > .width-control
+  max-width: 1024px
+  margin: 0 auto
+
+header.wrap-header
   position: fixed
   top: 0
+  margin: 0 auto
   box-sizing: border-box
   width: 100%
   height: 100px
-  padding: 30px 42px
   background-color: rgba(255, 255, 255, 0.8)
   nav
+    padding: 30px 42px
     ul
       width: 100%
       display: flex
       align-items: center
       justify-content: flex-start
+      color: $dark-green
       .brand
-        display: 
+        display: inline-block
         width: 220px
         img
           width: 100%
@@ -25,16 +34,18 @@
         margin-left: auto
         ul
           li.link
-            cursor: pointer
-            padding: 0 30
-      .cart
-        display: inline-block
-        margin-left: 82px
-        img
-          background-color: #222
-          width: 30px
-          height: 30px
-  
+            a
+              display: block
+              color: $dark-green
+              padding: 0 30
+      li.cart
+        cursor: pointer
+        .fa-shopping-cart
+          display: block
+          width: 24px
+          height: 24px
+          display: inline-block
+          margin-left: 20px
 .wrap-footer
   height: 200px
   background-color: #DEDEDE
@@ -55,6 +66,7 @@
       color: $light-green
     .subscribe-input
       margin-left: auto
+      box-sizing: border-box
       width: 380px
       height: 56px
       background-color: $light-green
