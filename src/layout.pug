@@ -2,32 +2,50 @@
 html
   head
     title FrontEnd Challenge - #{title}
-    link(href="layout.css", rel="stylesheet")
     link(href="https://use.fontawesome.com/releases/v5.3.1/css/all.css", rel="stylesheet")
-    
+    link(rel="shortcut icon" href="images/favicon.ico" type="image/x-icon")
     block scripts
     
   body
-    header#header.wrap-header
+    header#header
       nav
-        ul
-          li.brand
-            img(src="../images/logo-all-dark.svg", alt="logo-all-dark.svg")
-          li.menu
-            ul
-              li.link
-                a(href="/index.html", title="title").class 首頁
-              li.link
-                a(href="/sweet.html", title="title").class 甜點
-              li.link
-                a(href="/index.html", title="title").class 登入
-          li.cart
-            i.fas.fa-shopping-cart
+        .wrap-nav
+          ul
+            li.brand
+              a(href="/index.html", title="index")
+                img(src="../images/logo-all-dark.svg", alt="logo-all-dark.svg")
+            li.menu
+              ul
+                li.link
+                  a(href="/index.html", title="index").class 首頁
+                li.link
+                  a(href="/sweet.html", title="sweet").class 甜點
+                li.link
+                  a(href="/login.html", title="login").class 登入
+            li.cart
+              a(href="/cart.html", title="title").fas.fa-shopping-cart
     main.main
       block content
-    footer#footer.wrap-footer
+    footer#footer
       section.subscribe
-        img.subscribe-brand(src="../images/logo-light.svg", alt="logo-light.svg")
-        p.subscribe-content 訂閱你我的甜蜜郵件
-        input.subscribe-input(type="text")
+        .wrap-section
+          img.subscribe-brand(src="../images/logo-light.svg", alt="logo-light.svg")
+          p.subscribe-content 訂閱你我的甜蜜郵件
+          form.subscribe-form
+            i.icon-email.fas.fa-envelope
+            input.subscribe-input(type="text")
+            input#subscribe-submit(type="submit", value="" hidden)
+            label.subscibe-submit.fas.fa-arrow-right(for="subscribe-submit")
       section.contact
+        .wrap-section
+          .obj-brand-name
+          .contact-info_top
+            p 07-1234-5678
+            p sweetaste@email.com 800
+            p 高雄市新興區幸福路 520 號
+          .contact-info_bottom
+            .icon-line
+            .icon-fb
+            p.copy-right © 2018 Sweetaste* All Rights Reserved
+          .obj-sweet-text
+  script(src="index.js")

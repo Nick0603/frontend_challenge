@@ -28,11 +28,11 @@ var config = {
     chunkModules: false
   },
   entry: {
-    index: path.join(src, 'index.pug')
+    index: path.join(src, 'index.js')
   },
   output: {
     path: path.resolve(__dirname, 'build'),
-    // filename: '[name].js'
+    filename: '[name].js'
   },
   module: {
     rules: [
@@ -65,17 +65,6 @@ var config = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new SassPlugin([
-      path.join(src, 'styles/app.sass'),
-      path.join(src, 'styles/layout.sass'),
-      path.join(src, 'styles/index.sass'),
-      path.join(src, 'styles/sweet.sass'),
-      path.join(src, 'styles/login.sass'),
-      path.join(src, 'styles/product.sass'),
-      path.join(src, 'styles/cart.sass'),
-      path.join(src, 'styles/checkout.sass'),
-      path.join(src, 'styles/checkout_success.sass'),
-    ], process.env.NODE_ENV),
     pugPage('layout'),
     pugPage('index'),
     pugPage('sweet'),
