@@ -1,0 +1,267 @@
+@import 'reset.scss';
+@import 'module.scss';
+
+header nav > .wrap-nav,
+main section > .wrap-section{
+    max-width: 940px;
+    margin: 0 auto;
+}
+footer section > .wrap-section{
+  max-width: 780px;
+  margin: 0 auto;
+}
+@include phone-width{
+  header nav > .wrap-nav,
+  main section > .wrap-section{
+      max-width: 315px;
+      margin: 0 auto;
+  }
+  footer section > .wrap-section{
+    max-width: 315px;
+    margin: 0 auto;
+  }
+}
+
+header{
+  position: fixed;
+  top: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100px;
+  background-color: rgb(255, 255, 255);
+  @include phone-width{
+    height: 84px
+  }
+  nav{
+    padding: 30px 42px;
+    @include phone-width{
+      padding: 33px 33px;
+    }
+    ul{
+      width: 100%;
+      @include flexModule(rows,flex-start,center);
+      color: $dark-green;
+      li.brand{
+        display: block;
+        width: 220px;
+        height: 40px;
+        .img-brand-name{
+          width: 220px;
+          height: 40px;
+          z-index: 100;
+          background: url('../../images/logo-all-dark.svg') no-repeat;
+          background-size: 100% auto;
+        }
+        @include phone-width{
+          @include abs-center;
+          .img-brand-name{
+            @include abs-center;
+            width: 115px;
+            height: 18px;
+            background: url('../../images/logotype-lg-dark.svg') no-repeat;
+          }
+        }
+      }
+      li.menu{
+        display: inline-block;
+        margin-left: auto;
+        ul.pc{
+          li.link{
+            a{
+              display: block;
+              color: $dark-green;
+              padding: 0 30;
+            }
+          }
+        }
+        .mobile.menu-bar-btn{
+          display: none;
+        }
+        @include phone-width{
+          justify-self: start;
+          margin: 0;
+          ul.pc{
+            display: none;
+          }
+          .mobile.menu-bar-btn{
+            display: inline-block;
+            font-size: 16px;
+            color: $dark-green;
+          }
+        }
+      }
+      li.cart{
+        cursor: pointer;
+        .fa-shopping-cart{
+          display: block;
+          color: $dark-green;
+          font-size: 22px;
+          display: inline-block;
+          margin-left: 20px;
+        }
+        @include phone-width{
+          margin-left:auto;
+        }
+      }
+    }
+  }
+}
+footer{
+  section.subscribe{
+    background-color: $dark-green;
+    .wrap-section{
+      @include flexModule(rows,flex-start,center);
+      box-sizing: border-box;
+      height: 116px;
+      .subscribe-title{
+        @include flexModule(rows,flex-start,center);
+        .subscribe-brand{
+          width: 40px;
+          height: 40px;
+        }
+        .subscribe-content{
+          display: inline-block;
+          font-size: 24px;
+          line-height: 29px;
+          padding-left: 20px;
+          color: $light-green;
+        }
+      }
+      .subscribe-form{
+        @include flexModule(rows,flex-start,center);
+        margin-left: auto;
+        width: 380px;
+        height: 56px;
+        background-color: $light-green;
+        .icon-email{
+          @include flex(0 0 auto);
+          display: inline-block;
+          color: $dark-green;
+          font-size: 20px;
+          padding: 0 20px;
+        } 
+        input.subscribe-input{
+          flex: 1 1 auto;
+          width: 100%;
+          height: 56px;
+          padding: 0 1em;
+          outline: none;
+          border: none;
+          background-color: transparent;
+          color: $dark-green;
+        }
+        .subscibe-submit{
+          @include flexModule(rows,center,center);
+          flex: 0 0 auto;
+          cursor: pointer;
+          width: 64px;
+          height: 56px;
+          color: $dark-green;
+          background-color: $yellow;
+        }
+      }
+      @include phone-width{
+        height: 186px;
+        padding: 30px 0;
+        @include flexModule(column,flex-start,center);
+        .subscribe-title{
+          @include flexModule(rows,center,center);
+          margin-bottom: 30px;
+        }
+        .subscribe-form{
+          width: 315px;
+          .icon-email{
+            @include flex(0 0 auto);
+            display: inline-block;
+            color: $dark-green;
+            font-size: 20px;
+            padding: 0 20px;
+          } 
+          input.subscribe-input{
+            flex: 1 1 auto;
+          }
+          .subscibe-submit{
+          }
+        }
+      }
+    }
+  }
+  section.contact{
+    background-color: $light-green;
+    .wrap-section{
+      height: 340px;
+      padding: 38px 0px;
+      position: relative;
+      color: $dark-green;
+      p{
+        font-size: 16px;
+      }
+      .obj-brand-name{
+        display: inline-block;
+        width: 172px;
+        height: 27px;
+        margin-bottom: 115px;
+      }
+      .contact-info_top{
+        height: 68px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-around;
+        font-weight: 500;
+      }
+      .contact-info_bottom{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin: 30px 0;
+        .icon-line{
+          width: 32px;
+          height: 32px;
+          margin-right: 8px;
+        }
+        .icon-fb{
+          width: 32px;
+          height: 32px;
+        }
+        .copy-right{
+          display: inline-block;
+          margin-left: auto;
+        }
+      }
+      .obj-sweet-text{
+        position: absolute;
+        top: 30px;
+        right: 0;
+        width: 60px;
+        height: 220px;
+      }
+      @include phone-width(){
+        .obj-sweet-text{
+          display: none;
+        }
+        .obj-brand-name{
+          margin-bottom: 38px;
+        }
+        .contact-info_bottom{
+          margin: 0;
+          @include flexModule(column,flex-start,flex-start);
+          .media{
+            margin-top:37px;
+            margin-bottom:23px;
+          }
+          .copy-right{
+            display: block;
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}
+.main{
+  margin-top: 100px;
+  min-height: 300px;
+}    

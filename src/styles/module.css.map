@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "module.scss",
+        "module_flex.scss"
+    ],
+    "names": [],
+    "file": "module.css"
+}
