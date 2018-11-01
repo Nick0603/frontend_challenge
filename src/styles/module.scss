@@ -1,5 +1,3 @@
-@import "module_flex.scss";
-
 // color
 $light-green: #EAF0ED;
 $normal-green: #8DA291;
@@ -47,8 +45,8 @@ $phones-media: 479px;
 }
 
 @mixin flexModule($direction,$justify,$align){
-  @include flexbox;
-  @include flex-direction($direction);
-  @include justify-content($justify);
-  @include align-items($align);
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
 }
