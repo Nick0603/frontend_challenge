@@ -24,7 +24,7 @@ gulp.task('pug', function () {
         .pipe(pug({
             pretty: true
         }))
-        .pipe(gulp.dest('./frontend_challenge/build/'))
+        .pipe(gulp.dest('./build/'))
         .pipe(connect.reload());
 });
 // watch
@@ -43,7 +43,7 @@ gulp.task('sass', function () {
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(postcss(processors))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('./frontend_challenge/build/styles/'))
+        .pipe(gulp.dest('./build/styles/'))
         .pipe(connect.reload());
 });
 // js
@@ -53,14 +53,14 @@ gulp.task('scripts', function () {
         .pipe(uglify())
         .pipe(sourcemaps.init())
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('./frontend_challenge/build/scripts'))
+        .pipe(gulp.dest('./build/scripts'))
         .pipe(connect.reload());
 });
 // image
 gulp.task('image', function () {
     return gulp.src('./src/images/*')
         .pipe(image())
-        .pipe(gulp.dest('./frontend_challenge/build/images'));
+        .pipe(gulp.dest('./build/images'));
 });
 
 /*         prod         */
@@ -76,27 +76,27 @@ gulp.task('prod_pug', function () {
         .pipe(pug({
             pretty: true
         }))
-        .pipe(gulp.dest('./build/'))
+        .pipe(gulp.dest('./frontend_challenge/build/'))
         .pipe(connect.reload());
 });
 // scss
 gulp.task('prod_sass', function () {
     gulp.src('./src/styles/*.scss')
         .pipe(sass({ style: 'compressed' }).on('error', sass.logError))
-        .pipe(gulp.dest('./build/styles/'))
+        .pipe(gulp.dest('./frontend_challenge/build/styles/'))
         .pipe(connect.reload());
 });
 gulp.task('prod_scripts', function () {
     gulp.src('./src/scripts/*.js')
         .pipe(uglify())
-        .pipe(gulp.dest('./build/scripts'))
+        .pipe(gulp.dest('./frontend_challenge/build/scripts'))
         .pipe(connect.reload());
 });
 // image
 gulp.task('prod_image', function () {
     gulp.src('./src/images/*')
         .pipe(image())
-        .pipe(gulp.dest('./build/images'));
+        .pipe(gulp.dest('./frontend_challenge/build/images'));
 });
 
 // develope
