@@ -7,7 +7,8 @@ var gulp = require('gulp'),
     image = require('gulp-image'),
     sourcemaps = require('gulp-sourcemaps'),
     autoprefixer = require('autoprefixer'),
-    postcss = require('gulp-postcss')
+    postcss = require('gulp-postcss'),
+    imagemin = require('gulp-imagemin')
 
 // server
 gulp.task('server', function () {
@@ -18,13 +19,20 @@ gulp.task('server', function () {
     });
 });
 /*         dev         */
+// watch
+gulp.task('watch', function () {
+    gulp.watch('./src/*.pug', ['pug']);
+    gulp.watch('./src/styles/*.scss', ['sass']);
+    gulp.watch('./src/scripts/*.js', ['ConcatAndUglifyJs']);
+    gulp.watch('./src/images/*/*', ['image']);
+});
 // pug
 gulp.task('pug', function () {
     return gulp.src('./src/*.pug')
         .pipe(pug({
             pretty: true
         }))
-        .pipe(gulp.dest('./build/'))
+        .pipe(gulp.dest('./frontend_challenge/build/'))
         .pipe(connect.reload());
 });
 // watch
@@ -43,7 +51,7 @@ gulp.task('sass', function () {
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(postcss(processors))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('./build/styles/'))
+        .pipe(gulp.dest('./frontend_challenge/build/styles/'))
         .pipe(connect.reload());
 });
 // js
@@ -53,14 +61,14 @@ gulp.task('scripts', function () {
         .pipe(uglify())
         .pipe(sourcemaps.init())
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('./build/scripts'))
+        .pipe(gulp.dest('./frontend_challenge/build/scripts'))
         .pipe(connect.reload());
 });
 // image
 gulp.task('image', function () {
-    return gulp.src('./src/images/*')
+    return gulp.src(['./src/images/*', './src/images/*/*'])
         .pipe(image())
-        .pipe(gulp.dest('./build/images'));
+        .pipe(gulp.dest('./frontend_challenge/build/images'));
 });
 
 /*         prod         */
@@ -69,34 +77,50 @@ gulp.task('prod_watch', function () {
     gulp.watch('./src/*.pug', ['prod_pug']);
     gulp.watch('./src/styles/*.scss', ['prod_sass']);
     gulp.watch('./src/scripts/*.js', ['prod_ConcatAndUglifyJs']);
+    gulp.watch('./src/images/*/*', ['prod_image']);
 });
 // pug
 gulp.task('prod_pug', function () {
-    gulp.src('./src/*.pug')
+    return gulp.src('./src/*.pug')
         .pipe(pug({
             pretty: true
         }))
-        .pipe(gulp.dest('./frontend_challenge/build/'))
+        .pipe(gulp.dest('./build/'))
         .pipe(connect.reload());
 });
 // scss
 gulp.task('prod_sass', function () {
-    gulp.src('./src/styles/*.scss')
+    return gulp.src('./src/styles/*.scss')
         .pipe(sass({ style: 'compressed' }).on('error', sass.logError))
-        .pipe(gulp.dest('./frontend_challenge/build/styles/'))
+        .pipe(gulp.dest('./build/styles/'))
         .pipe(connect.reload());
 });
 gulp.task('prod_scripts', function () {
-    gulp.src('./src/scripts/*.js')
-        .pipe(uglify())
-        .pipe(gulp.dest('./frontend_challenge/build/scripts'))
+    return gulp.src('./src/scripts/*.js')
+        .pipe(uglify({
+            compress: {
+                drop_console: true
+            }
+        }))
+        .pipe(gulp.dest('./build/scripts'))
         .pipe(connect.reload());
 });
 // image
 gulp.task('prod_image', function () {
-    gulp.src('./src/images/*')
+    return gulp.src(['./src/images/*', './src/images/*/*'])
         .pipe(image())
-        .pipe(gulp.dest('./frontend_challenge/build/images'));
+        .pipe(imagemin([
+            imagemin.gifsicle({ interlaced: true }),
+            imagemin.jpegtran({ progressive: true }),
+            imagemin.optipng({ optimizationLevel: 5 }),
+            imagemin.svgo({
+                plugins: [
+                    { removeViewBox: true },
+                    { cleanupIDs: false }
+                ]
+            })
+        ]))
+        .pipe(gulp.dest('./build/images'));
 });
 
 // develope

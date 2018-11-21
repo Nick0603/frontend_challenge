@@ -5,7 +5,9 @@ section.landing{
         .landing_view{
             width: 100%;
             height: 490px;
-            background-image: url(https://fakeimg.pl/940x406/);
+            background-image: url('/frontend_challenge/build/images/index/bg-landing.jpg');
+            background-size: 100% auto;
+            background-position: center center;
         }
         .top-three{
             position: absolute;
@@ -16,11 +18,54 @@ section.landing{
             display: flex;
             flex-direction: row;
             justify-content: center;
-            .news{
+            .news {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
                 width: 259px;
                 height: 256px;
-                border: 1px solid #FFF;
-                background-image: url(https://fakeimg.pl/259x256/);
+                &::before {
+                    content:'';
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    border: 1px solid #FFF;
+                    filter: blur(5px);
+                }
+
+                &.first::before {
+                    background-image: url('/frontend_challenge/build/images/index/bg-landing-1.jpg');
+                    background-size: 100% auto;
+                    background-position: center center;
+                }
+
+                &.second::before {
+                    background-image: url('/frontend_challenge/build/images/index/bg-landing-2.jpg');
+                    background-size: 100% auto;
+                    background-position: center center;
+                }
+
+                &.third::before {
+                    background-image: url('/frontend_challenge/build/images/index/bg-landing-3.jpg');
+                    background-size: 100% auto;
+                    background-position: center center;
+                }
+                a{
+                    position: absolute;
+                    line-height: 259px;
+                    top:50%;
+                    left:50%;
+                    transform: translate(-50%,-50%);
+                    text-align: center;
+                    color: white;
+                    font-size: 24px;
+                    writing-mode: vertical-rl;
+                    width: 100%;
+                    height: 100%;
+                    background-color: $dark-green;
+                    opacity: 0.8;
+                }
             }
         }
     }
